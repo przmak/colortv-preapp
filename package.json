@@ -7,16 +7,18 @@
   "scripts": {
     "build-server-dev": "npm run install-libs",
     "install-libs": "npm install && bower install",
-    "build-dev": "gulp test"
+    "build-dev": "gulp build && npm run start-server-dev",
+    "start-server-dev" : "node index.js"
   },  
   "devDependencies": {
     "express": "^4.14.0",
     "gulp-cli" : "^1.2.2",
     "gulp" : "^3.9.1",
     "gulp-babel" : "^6.1.2",
-    "bower" : "1.7.9"
-  },
-  "dependencies" : {
-      "angular" : "^1.5.8"
+    "gulp-sourcemaps" : "^1.6.0",    
+    "gulp-watch" : "^4.3.9",
+    "bower" : "1.7.9",    
+    "babel-preset-es2015" :"^6.14.0",
+    "ejs": "^2.5.2"
   }
 }
