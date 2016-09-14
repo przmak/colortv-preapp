@@ -1,8 +1,0 @@
-{
-  "name": "colortv-app",
-  "version": "0.0.1",
-  "author": "WK",
-  "dependencies" : {
-      "angular" : "^1.5.8"
-  }
-}
