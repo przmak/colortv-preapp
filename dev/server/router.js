@@ -26,33 +26,5 @@ export default class {
         });
         apiController(app);
         
-        app.post('/getCountryInfo',function(req,res){         
-            var fn = function (error,response){
-                console.log("??");
-                console.log(response);
-                console.log(response.query.results.channel);    
-            }
-            //var query = new YQL('select * from weather.forecast where woeid=12795674');
-            
-            var q = new YQL("select woeid from geo.places where text='10001' limit 1");
-            var q2 = new YQL("select woeid from geo.places where text='10002' limit 1");
-            q.exec(function (error, response) {
-                        // Do something with results (response.query.results)
-                    console.log((response.query.results))
-//                    console.log((response.query.results.channel.item.condition));
-//                    console.log((response.query.results.channel.item));
-//                    console.log((response.query.results.channel.item.forecast));
-            });
-            
-            q2.exec(function (error, response) {
-                        // Do something with results (response.query.results)
-                    console.log((response.query.results))
-//                    console.log((response.query.results.channel.item.condition));
-//                    console.log((response.query.results.channel.item));
-//                    console.log((response.query.results.channel.item.forecast));
-            });
-            //YQL('SELECT * FROM weather.forecast WHERE (location = @zip)').setParam('zip', 94089).setConfig('ssl', true).exec(fn)
-            
-        });
     }
 }

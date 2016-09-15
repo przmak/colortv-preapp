@@ -15,8 +15,8 @@ var mainController = function ($scope,$http,apiService){
     that.showErrors = function (){
         console.log("error");        
     }
-    that.fillCountryInfo = function(){
-        console.log("success")
+    that.fillCountryInfo = function(data){
+        console.log(data);
     }
     that.countryChanged = function(activeCountry){
         apiService.loadCitiesWeather(activeCountry.zip).

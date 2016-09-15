@@ -4,12 +4,19 @@
  * and open the template in the editor.
  */
 
-
+fs = require('fs');
 globalObjects = {
     promise : require('promise'),
     YQL : require('yql'),
-    ejs : require('ejs')
+    ejs : require('ejs'),
+    logger : function logger(config){
+        fs.writeFile(config.path + config.filename, config.error ,function(){
+                console.log("Logged Error In File: " + config.path + config.filename);
+        }) ;
+    }
 }
+
+
 
 
 "use strict";
