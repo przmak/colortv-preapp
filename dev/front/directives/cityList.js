@@ -5,10 +5,10 @@
  */
 
 
-angularapp.directive('countryList',function(){
+angularapp.directive('cityList',function(){
     return{
         restrict: 'E',
-        templateUrl: '/front/views/countryList.html',
+        templateUrl: '/front/views/cityList.html',
         scope: {
             list : "=param",
             selectedCountry : "&selectedCountry"
@@ -16,12 +16,13 @@ angularapp.directive('countryList',function(){
         compile: function compile(tElement, tAttrs, transclude) {
             return {
                pre: function preLink(scope, iElement, iAttrs, controller) {
-                   scope.selectedAddress = scope.list[0];                   
-                   
+                   scope.selectedAddress = null;                   
                },
                post: function postLink(scope, iElement, iAttrs, controller) {  
-                   scope.getCityData = function(){                       
-                       scope.selectedCountry({activeCountry: scope.selectedAddress});
+                   scope.getCityData = function(){    
+                       if(scope.selectedAddress){
+                        scope.selectedCountry({activeCountry: scope.selectedAddress});   
+                       }                       
                    }
                    scope.getCityData();
                }

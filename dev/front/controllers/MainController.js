@@ -5,23 +5,23 @@
  */
 
 
-var mainController = function ($scope,$http){
+var mainController = function ($scope,$http,apiService){
     var that = this;    
     $scope.init = function(data){
         that.list = data.list;
     };
     $scope.activeCountry = {};
     that.activeCountry = {};
+    that.showErrors = function (){
+        console.log("error");        
+    }
+    that.fillCountryInfo = function(){
+        console.log("success")
+    }
     that.countryChanged = function(activeCountry){
-        var config = {
-            method : "POST",
-            url: "/getCountryInfo",
-            data: [activeCountry],
-        }
-        $http(config).then(function(){
-            
-        },function(){
-            
-        })
+        apiService.loadCitiesWeather(activeCountry.zip).
+                then(that.fillCountryInfo,that.showErrors);   
     }
 }
+angularapp.controller('MainController',mainController);
+mainController.$inject = ['$scope','$http','apiService'];

@@ -3,18 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-ejs = require('ejs');
-YQL = require('yql');
+
+
+globalObjects = {
+    promise : require('promise'),
+    YQL : require('yql'),
+    ejs : require('ejs')
+}
+
 
 "use strict";
 var express = require('express');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+var livereload = require('connect-livereload');
 
 var config = require("./release/server/config.json");
 var server = require("./release/server/server.js");
 
 
 var app = express();
+
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 
@@ -23,4 +31,6 @@ app.use('/front',express.static('release/front'));
 
 server.init(app,config);
 
-
+app.use(livereload({
+    port: 9998
+}));

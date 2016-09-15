@@ -23,11 +23,12 @@ gulp.task('build-js-be',function(){
             .pipe(gulp.dest('release'));    
 });
 gulp.task('build-js-fe',function(){
-    return gulp.src(["dev/front/controllers/**/*.js",
-                "dev/front/app.js",
-                "dev/front/directives/*.js",
+    return gulp.src(["dev/front/app.js",
+                "dev/front/filters/*.js",
                 "dev/front/services/*.js",
-                "dev/front/filters/*.js"])                
+                "dev/front/directives/*.js",
+                "dev/front/controllers/**/*.js",
+                ])                
             .pipe(concat('app.js'))
             .pipe(gulp.dest('release/front'));    
 });

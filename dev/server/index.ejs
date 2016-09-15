@@ -1,9 +1,9 @@
 <html>
     <head>
         <script type="text/javascript" src="public/angular/angular.min.js"></script>
+        <script type="text/javascript" src="public/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
         <link rel="stylesheet" href="public/bootstrap/dist/css/bootstrap.css">
-        <link rel="stylesheet" href="front/styles.css">
-        
+        <link rel="stylesheet" href="front/styles.css">        
     </head>
     <body ng-app="colorTvDemo">
         <div class="container">        
@@ -11,14 +11,14 @@
             <div ng-controller="MainController as mainController" 
                 ng-init='init({list: <%- JSON.stringify(list) %>})'>
                 <div class="row">
-                    <div class="col-lg-3">
-                        <country-list param="mainController.list" 
+                    <div class="col-sm-3">
+                        <city-list param="mainController.list" 
                             selected-country="mainController.countryChanged(activeCountry)">
                         </country-list>
                     </div>
-                    <div class="col-lg-9">
-                        <country-info param="mainController.activeCountry"></country-info>
-                    </div>
+                    <div class="col-sm-9">
+                        <city-info param="mainController.activeCountry"></country-info>
+                    </div>                
                 </div>
             </div>        
         </div>    

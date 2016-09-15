@@ -5,10 +5,10 @@
  */
 
 
-angularapp.directive('countryInfo',function(){
+angularapp.directive('cityInfo',function(){
     return{
         restrict: 'E',
-        templateUrl: '/front/views/countryInfo.html',
+        templateUrl: '/front/views/cityInfo.html',
         scope: {
             country : "=param"
         },
