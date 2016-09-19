@@ -1,5 +1,27 @@
 <div class="row">
     <div class="col-lg-12">
-        <h4>Todays Weather Forecast for: {{}}</h4>
+        <h4>{{data.item.title}}</h4>                
+    </div>
+    <div class="col-lg-12">
+        <span>Sunrise: <strong>{{data.astronomy.sunrise}}</strong></span>
+        <span>Sunset <strong>{{data.astronomy.sunset}}</strong></span>
+    </div>
+    <div class="col-lg-12">
+        <span>Humidity: <strong>{{data.atmosphere.humidity}}</strong></span>
+        <span>Presure: <strong>{{data.atmosphere.pressure}}{{data.units.pressure}}</strong></span>
+        <span>Rising: <strong>{{data.atmosphere.rising}}</strong></span>
+        <span>Visibility: <strong>{{data.atmosphere.visibility}}</strong></span>
+    </div>
+    <div class="col-lg-12">
+        <span>Chill <strong>{{data.wind.chill}}</strong></span>
+        <span>Direction: <strong>{{data.wind.direction}}</strong></span>
+        <span>Speed: <strong>{{data.wind.speed}}{{data.units.speed}}</strong></span>
+    </div>
+    <div class="col-lg-12">
+        <span>Min temp <strong>{{data.item.forecast[0].low}}{{data.units.temperature}}</strong></span>
+        <span>Max temp <strong>{{data.item.forecast[0].high}}{{data.units.temperature}}</strong></span>
+        <span>Weather <strong>{{data.item.forecast[0].text}}</strong></span>
+        <span>Temp now <strong>{{data.item.condition.temp}}{{data.units.temperature}}</strong></span>
+        <span>Weather now <strong>{{data.item.condition.text}}</strong></span>
     </div>
 </div>

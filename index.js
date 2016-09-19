@@ -13,6 +13,10 @@ globalObjects = {
         fs.writeFile(config.path + config.filename, config.error ,function(){
                 console.log("Logged Error In File: " + config.path + config.filename);
         }) ;
+    },
+    errorPat: {
+        msg : "Bad Request",
+        code : 400
     }
 }
 

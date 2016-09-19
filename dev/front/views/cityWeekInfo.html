@@ -1,0 +1,16 @@
+<div class="col-lg-12">
+    <div class="row">
+        <div class="col-lg-12 text-center forecast-block-title">
+            <h2>Forecast for next days</h2>
+        </div>
+        <div ng-repeat="item in data.item.forecast">
+            <div class="col-sm-3 col-xs-6 forecast-minibox">
+                <h4>{{item.date}}({{item.day}})</h4>
+                <div>Min temp <strong>{{item.low}}{{data.units.temperature}}</strong></div>
+                <div>Max temp <strong>{{item.high}}{{data.units.temperature}}</strong></div>
+                <div>Weather <strong>{{item.text}}</strong></div>            
+            </div>
+            <div class="clearfix" ng-if="$index%4 == 3"></div>
+        </div>
+    </div>
+</div>

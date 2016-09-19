@@ -5,10 +5,10 @@
  */
 
 
-angularapp.directive('cityInfo',function(){
+angularapp.directive('cityWeekInfo',function(){
     return{
         restrict: 'E',
-        templateUrl: '/front/views/cityInfo.html',
+        templateUrl: '/front/views/cityWeekInfo.html',
         scope: {
             data : "=param"
         },
@@ -17,7 +17,7 @@ angularapp.directive('cityInfo',function(){
                pre: function preLink(scope, iElement, iAttrs, controller) {
                    
                },
-               post: function postLink(scope, iElement, iAttrs, controller) {
+               post: function postLink(scope, iElement, iAttrs, controller) {                   
                    
                }
             }

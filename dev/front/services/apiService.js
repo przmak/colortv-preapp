@@ -7,16 +7,14 @@
 function service($http) {
     /**
      * 
-     * @param String or Array of Strings referencing to zip codes
+     * @param String/Int or Array of Strings/Ints referencing to zip codes
      * @returns promise
      */
-    this.loadCitiesWeather = function(zips){
-        var data = {};
-        if(typeof zips === "string"){
-            data.zip = zips;
-        }else{
-            data.zips = zips;
-        }
+
+    this.loadCityWeather = function(zip){
+        var data = {
+            zip: zip
+        };
         var config = {
             url: "/api/getCityInfo",
             method: "POST",
@@ -24,5 +22,18 @@ function service($http) {
         }
         return $http(config);
     }
+    
+    this.loadCitiesWeather = function(zips){
+        var data = {
+            zips: zips
+        };
+        var config = {
+            url: "/api/getCitiesInfo",
+            method: "POST",
+            data: data
+        }
+        return $http(config);
+    }
+    
 }
 angularapp.service('apiService', service).$inject = ['$http'];;

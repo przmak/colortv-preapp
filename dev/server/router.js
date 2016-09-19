@@ -9,8 +9,7 @@ var apiController = require("../app/ApiController");
 export default class {
     constructor(app){
         app.get('/', function (req, res) {            
-            var title =  "Color TV App";
-            title =  "App";
+            var title =  "ColorTV App";
             var data = {
                 title: title,
                 list: [

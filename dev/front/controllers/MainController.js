@@ -12,16 +12,26 @@ var mainController = function ($scope,$http,apiService){
     };
     $scope.activeCountry = {};
     that.activeCountry = {};
-    that.showErrors = function (){
-        console.log("error");        
-    }
+    that.cityDataInfo = null;
+    that.showErrors = function (errors){
+        //ToDo: Specification didn't require it, leaving log
+        console.log("error",errors);
+    };
     that.fillCountryInfo = function(data){
-        console.log(data);
-    }
-    that.countryChanged = function(activeCountry){
-        apiService.loadCitiesWeather(activeCountry.zip).
+        that.cityDataInfo = data.data.query.results.channel;
+    };
+    that.cityChanged = function(activeCountry){
+        apiService.loadCityWeather(activeCountry.zip).
                 then(that.fillCountryInfo,that.showErrors);   
-    }
-}
+    };
+    that.multipleCityReq = function(){        
+        var zips = Array(11530,20004,32204);
+        apiService.loadCitiesWeather(zips).then(function(data){
+            //ToDo: Specification didn't require it, leaving log
+            console.log(data)
+        })
+        
+    };
+};
 angularapp.controller('MainController',mainController);
 mainController.$inject = ['$scope','$http','apiService'];

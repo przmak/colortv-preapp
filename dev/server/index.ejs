@@ -2,6 +2,7 @@
     <head>
         <script type="text/javascript" src="public/angular/angular.min.js"></script>
         <script type="text/javascript" src="public/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
         <link rel="stylesheet" href="public/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" href="front/styles.css">        
     </head>
@@ -10,15 +11,19 @@
             <h1 class="text-center"><%= title %></h1>
             <div ng-controller="MainController as mainController" 
                 ng-init='init({list: <%- JSON.stringify(list) %>})'>
-                <div class="row">
+                <div class="row">  
+                    <button ng-click="mainController.multipleCityReq()">Test multiple</button> 
                     <div class="col-sm-3">
                         <city-list param="mainController.list" 
-                            selected-country="mainController.countryChanged(activeCountry)">
+                            selected-city="mainController.cityChanged(activeCountry)">
                         </country-list>
                     </div>
                     <div class="col-sm-9">
-                        <city-info param="mainController.activeCountry"></country-info>
-                    </div>                
+                        <city-info param="mainController.cityDataInfo" ng-show="mainController.cityDataInfo"></city-info>
+                    </div>
+                    <div class="col-sm-12 forecast-block">
+                        <city-week-info param="mainController.cityDataInfo" ng-show="mainController.cityDataInfo" ></city-week-info>
+                    </div>
                 </div>
             </div>        
         </div>    

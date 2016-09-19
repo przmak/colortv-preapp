@@ -11,7 +11,7 @@ angularapp.directive('cityList',function(){
         templateUrl: '/front/views/cityList.html',
         scope: {
             list : "=param",
-            selectedCountry : "&selectedCountry"
+            selectedCountry : "&selectedCity"
         },
         compile: function compile(tElement, tAttrs, transclude) {
             return {
