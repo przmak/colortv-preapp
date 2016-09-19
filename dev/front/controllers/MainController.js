@@ -24,8 +24,10 @@ var mainController = function ($scope,$http,apiService){
         apiService.loadCityWeather(activeCountry.zip).
                 then(that.fillCountryInfo,that.showErrors);   
     };
-    that.multipleCityReq = function(){        
-        var zips = Array(11530,20004,32204);
+	/**
+	*Array of zips as String || Number
+	*/
+    that.multipleCityReq = function(zips){
         apiService.loadCitiesWeather(zips).then(function(data){
             //ToDo: Specification didn't require it, leaving log
             console.log(data)
