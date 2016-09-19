@@ -10,7 +10,6 @@ var mainController = function ($scope,$http,apiService){
     $scope.init = function(data){
         that.list = data.list;
     };
-    $scope.activeCountry = {};
     that.activeCountry = {};
     that.cityDataInfo = null;
     that.showErrors = function (errors){
