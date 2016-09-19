@@ -11,7 +11,7 @@ module.exports = {
         let inst = new Router(app);
         
         app.listen(config.dev.port, function () {
-            console.log('Example app listening on port !' + config.dev.port);
+            console.log('App listening on port: ' + config.dev.port);
         });
     }
 };
