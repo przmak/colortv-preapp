@@ -10,7 +10,6 @@ Vagrant.configure(2) do |config|
 		nodejs.vm.synced_folder ".", "/home/vagrant/sync", disabled: true
 		nodejs.vm.provision "shell", inline: "sudo curl --silent --location https://rpm.nodesource.com/setup_6.x | sudo bash -"
 		nodejs.vm.provision "shell", inline: "sudo yum -y install nodejs"
-		nodejs.vm.provision "shell", inline: "sudo npm install -g gulp-cli"
 		nodejs.vm.provision "shell", inline: "sudo yum install vim-X11 vim-common vim-enhanced vim-minimal"
 	end
 end
